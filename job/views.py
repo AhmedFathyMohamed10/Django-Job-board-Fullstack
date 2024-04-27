@@ -1,9 +1,15 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+
+
+from .models import Job
 
 # Create your views here.
 def job_list(request):
-	return HttpResponse('Hello Jobs')
+	jobs = Job.objects.all()
+	context = {'jobs': jobs}
+	return render(request, 'jobs.html', context)
 
 def job_details(request, pk):
-	pass	
+	job = get_object_or_404(Job, id=pk)
+	context = {'job': job}
+	return render(request, 'job_details.html', context)
