@@ -19,19 +19,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
+    # Internal apps
+    'accounts',
+    'job',
+    'contact',
+    'home',
+    'blog',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # Internal apps
-    'blog',
-    'accounts',
-    'job',
-    'contact',
-    'home',
 
     # 3-Party Apps
     'bootstrap4',
@@ -127,3 +128,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# LOGIN_REDIRECT_URL = 'jobs/'
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -12,12 +12,13 @@ def job_list(request):
 	paginator = Paginator(jobs, 5)
 	page_number = request.GET.get("page")
 	page_obj = paginator.get_page(page_number)
-	context = {'jobs': page_obj}
+	counting_jobs = jobs.count()
+	context = {'jobs': page_obj, 'count': counting_jobs}
 	return render(request, 'jobs.html', context)
 
 def job_details(request, slug):
 	job = get_object_or_404(Job, slug=slug)
-
+	job_responsibilities = job.responsibility
 	# Applying for the job
 	if request.method == 'POST':
 		form = ApplyForm(request.POST, request.FILES)
@@ -29,7 +30,7 @@ def job_details(request, slug):
 			return redirect('all-jobs')
 	else:
 		form = ApplyForm() 
-	context = {'job': job, 'form': form}
+	context = {'job': job, 'form': form, 'job_responsibilities': job_responsibilities}
 	return render(request, 'job_details.html', context)
 
 @login_required

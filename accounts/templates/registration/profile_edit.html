@@ -1,0 +1,18 @@
+{% extends "registration/base_generic.html" %}
+{% load bootstrap4 %}
+{% block content %}
+
+  <form method="POST" action="#" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form profileform %}
+    {% buttons %}
+    <div class="submit_btn">
+        <button class="boxed-btn3 w-100" type="submit">Edit Profile Now</a>
+    </div>
+    {% endbuttons %}
+  </form>
+
+  {# Assumes you set up the password_reset view in your URLconf #}
+  <p>Want to cancel editing? <a href="{% url 'profile' %}">Cancel</a></p>
+
+{% endblock %}

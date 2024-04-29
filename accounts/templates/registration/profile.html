@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block body %}
+
+<style>
+.job_details_area {
+    padding: 50px 0;
+}
+
+.job_summary {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.summary_header h3 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.job_content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.job_content ul li {
+    margin-bottom: 10px;
+}
+
+.job_content ul li strong {
+    font-weight: bold;
+}
+
+.submit_btn {
+    margin-top: 20px;
+}
+
+
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #007bff;
+}
+
+</style>
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="job_summary">
+                        <div class="summary_header">
+                            <h3>Profile Data</h3>
+                        </div>
+                        <div class="job_content">
+                            <ul>
+                                <li><strong>Name:</strong> {{profile.user.first_name}} {{profile.user.last_name}}</li>
+                                <li><strong>Email:</strong> {{profile.user.email}}</li>
+                                {% if profile.city %}
+                                    <li><strong>City:</strong> {{profile.city}}</li>
+                                {% else %}
+                                    <li><strong>City:</strong> You have not entered your city yet!</li>
+                                {% endif %}
+                                <li><strong>Phone:</strong> {{profile.phone}}</li>
+                                {% if profile.image %}
+                                    <li><strong>Image:</strong> <img class="profile-image" src="{{profile.image.url}}" alt="Profile Image"></li>
+                                {% else %}
+                                     <li>No Image</li>
+                                {% endif %}    
+                            </ul>
+                            <div class="submit_btn">
+                                <a href="{% url 'edit_profile' %}" class="boxed-btn3 w-70" type="submit">Edit profile</a>
+                                <a href="{% url 'user_edit' %}" class="boxed-btn3 w-70" type="submit">Edit User Information</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

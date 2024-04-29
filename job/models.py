@@ -23,6 +23,9 @@ class Job(models.Model):
 	category = models.ForeignKey('Category', on_delete=models.CASCADE)
 	excperience = models.IntegerField(default=1)
 	image = models.ImageField(upload_to=helper_upload_image)
+	responsibility = models.TextField(default='')
+	qualifications = models.TextField(default='')
+	benefits = models.TextField(default='')
 	published_at = models.DateTimeField(auto_now_add=True)
 
 	slug = models.SlugField(blank=True, null=True)
