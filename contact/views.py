@@ -6,6 +6,7 @@ from .models import Info
 
 # Create your views here.
 def send_message(request):
+    info = Info.objects.first()
     if request.method == 'POST':
         subject = request.POST['subject']
         email = request.POST['email']
@@ -24,8 +25,9 @@ def send_message(request):
         print('Email sent: ', email)
         return redirect('email-sent')
 
-    return render(request, 'contact.html')
+    return render(request, 'contact.html', {'info': info})
 
 
 def email_sent(request):
     return render(request, 'email_sent.html', {})
+
