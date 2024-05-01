@@ -52,21 +52,17 @@
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="#">home</a></li>
+                                            <li><a href="{% url 'home' %}">home</a></li>
                                             <li><a href="{% url 'all-jobs' %}">Browse Job</a></li>
-                                            <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                    <li><a href="{% url 'add-job' %}">Post Job </a></li>
-                                                    <li><a href="{% url 'all-jobs' %}">Jobs</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                    <li><a href="#">blog</a></li>
-                                                    <li><a href="#">single-blog</a></li>
-                                                </ul>
-                                            </li>
+                                            <li><a href="{% url 'add-job' %}">Post Job</a></li>
                                             <li><a href="{% url 'send_message' %}">Contact</a></li>
+                                            <li><a href="#">Blogs <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="#">Blogs</a></li>
+                                                    <li><a href="#">Add blog</a></li>
+                                                </ul>
+                                            </li>
+                                            
                                         </ul>
                                     </nav>
                                 </div>

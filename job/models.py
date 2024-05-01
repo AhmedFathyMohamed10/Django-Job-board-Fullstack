@@ -22,7 +22,7 @@ class Job(models.Model):
 	salary = models.IntegerField(default=0)
 	category = models.ForeignKey('Category', on_delete=models.CASCADE)
 	excperience = models.IntegerField(default=1)
-	image = models.ImageField(upload_to=helper_upload_image)
+	image = models.ImageField(upload_to=helper_upload_image, null=True, blank=True)
 	responsibility = models.TextField(default='')
 	qualifications = models.TextField(default='')
 	benefits = models.TextField(default='')

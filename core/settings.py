@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     # 3-Party Apps
     'bootstrap4',
     'django_filters',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -117,8 +118,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    "/var/www/static/",
+    BASE_DIR / "static"
 ]
 
 import os
